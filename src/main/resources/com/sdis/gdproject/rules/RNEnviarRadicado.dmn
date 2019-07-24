@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dmn:definitions xmlns:dmn="http://www.omg.org/spec/DMN/20180521/MODEL/" xmlns="https://github.com/kiegroup/drools/kie-dmn/_979B32F0-12AF-43F2-9B2D-0FE7357EFCE4" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="http://www.drools.org/kie/dmn/1.2" xmlns:feel="http://www.omg.org/spec/DMN/20180521/FEEL/" xmlns:dmndi="http://www.omg.org/spec/DMN/20180521/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" id="_5CE95D51-4B10-4060-A190-87423D12BC68" name="RN Validar Envio Radicado" expressionLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" typeLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" namespace="https://github.com/kiegroup/drools/kie-dmn/_979B32F0-12AF-43F2-9B2D-0FE7357EFCE4">
+  <dmn:extensionElements/>
+  <dmn:decision id="_21C1D5FC-65E5-4C6E-B1C6-4CE6C38E1A66" name="notificarRadicado">
+    <dmn:variable id="_DD73CDFA-D76E-4AE6-9E12-5A1EF0D4337B" name="notificarRadicado" typeRef="boolean"/>
+    <dmn:informationRequirement id="_B54C4B8B-998B-49F3-B78E-2C7949F6DFCB">
+      <dmn:requiredInput href="#_C2ED5F66-53B0-4161-A8D0-8E202E950104"/>
+    </dmn:informationRequirement>
+    <dmn:decisionTable id="_073B4C0D-A7FD-4520-BE15-44CCDE8867F3" hitPolicy="UNIQUE" preferredOrientation="Rule-as-Row">
+      <dmn:input id="_966D7E14-7324-48C1-A2A9-8A2504CC3234">
+        <dmn:inputExpression id="_9FFF09A6-CA93-4AB9-B24F-C36A4F178934" typeRef="string">
+          <dmn:text>tipoRelacion</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:output id="_07D38079-2A1E-487A-AC24-9C2690D2796D" typeRef="boolean"/>
+      <dmn:rule id="_46D05771-68BA-4E85-B95D-6DB9A24ED97D">
+        <dmn:description>PADRES</dmn:description>
+        <dmn:inputEntry id="_2BC568D6-B39E-4CA3-A8C1-A8E392301E9F">
+          <dmn:text>"PARE001"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_7635DCB9-5024-45D6-8771-78A8E4B9A3F8">
+          <dmn:text>true</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_39FB09FE-02EF-40E8-80E9-111FA6F98B8D">
+        <dmn:description>HIJOS</dmn:description>
+        <dmn:inputEntry id="_9ACA9D19-8C88-4A10-95C5-5DDB9B97B8A6">
+          <dmn:text>"PARE003"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_28D92AEA-D6F5-470A-AFA1-A8D7BC124F15">
+          <dmn:text>true</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_B1B88B48-1124-4D89-86EA-F1F604256FB0">
+        <dmn:description>CONYUGE</dmn:description>
+        <dmn:inputEntry id="_B19F4D03-BD5D-42AA-B674-8BEE7B551D8C">
+          <dmn:text>"PARE004"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_3BCCFC66-FBB1-476C-A484-D4B28F5F26D0">
+          <dmn:text>true</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_3764B42E-7946-4969-87C1-36A21B5FE800">
+        <dmn:inputEntry id="_17857BDC-6F6B-43EA-9F47-1272E92882B8">
+          <dmn:text>not("PARE001","PARE003","PARE004")</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_CDD4E648-9ECB-46DB-816D-BC59AFC7E8DB">
+          <dmn:text>false</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+    </dmn:decisionTable>
+  </dmn:decision>
+  <dmn:inputData id="_C2ED5F66-53B0-4161-A8D0-8E202E950104" name="tipoRelacion">
+    <dmn:variable id="_6675C515-5104-4AAE-A042-253808833D38" name="tipoRelacion" typeRef="string"/>
+  </dmn:inputData>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths dmnElementRef="_073B4C0D-A7FD-4520-BE15-44CCDE8867F3">
+            <kie:width>50.0</kie:width>
+            <kie:width>309.0</kie:width>
+            <kie:width>100.0</kie:width>
+            <kie:width>100.0</kie:width>
+          </kie:ComponentWidths>
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="dmnshape-_21C1D5FC-65E5-4C6E-B1C6-4CE6C38E1A66" dmnElementRef="_21C1D5FC-65E5-4C6E-B1C6-4CE6C38E1A66" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="257" y="100" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-_C2ED5F66-53B0-4161-A8D0-8E202E950104" dmnElementRef="_C2ED5F66-53B0-4161-A8D0-8E202E950104" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="256" y="227" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="dmnedge-_B54C4B8B-998B-49F3-B78E-2C7949F6DFCB" dmnElementRef="_B54C4B8B-998B-49F3-B78E-2C7949F6DFCB">
+        <di:waypoint x="306" y="227"/>
+        <di:waypoint x="307" y="125"/>
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</dmn:definitions>
